@@ -8,8 +8,8 @@
             <section>
                 <hr>
                 <header>{{ $tweet->name }}</header>
-                <div>{{ $tweet->text }}</div>
-                <hr> 
+                <div><a href="/tweets/{{ $tweet->id }}">{{ $tweet->text }}</div></a>
+                <hr>
             </section>
         @endforeach
     </main>

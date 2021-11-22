@@ -3,7 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use \App\tweets;
+//use \App\tweets;
+
 
 class Comment extends Model
 {
@@ -17,6 +18,10 @@ class Comment extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\Users');
+        return $this->belongsTo('App\User');
     }
+   
+    protected $fillable = [
+        'user_id', 'text', 'tweets_id'
+    ];
 }

@@ -23,7 +23,7 @@ class CreateComments extends Migration
                 ->on('users')
                 ->onDelete('cascade');
             $table->string('text', 25);
-            $table->unsignedBigInteger('tweet_id')
+            $table->unsignedBigInteger('tweets_id')
                 ->references('id')
                 ->on('tweets')
                 ->onDelete('cascade');

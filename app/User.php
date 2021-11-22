@@ -27,7 +27,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function comments(){
+    public function comments()
+    {
         return $this->hasMany('\App\Comment');
+    }
+
+    public function tweets()
+    {
+        return $this->hasMany('\App\tweets');
     }
 }

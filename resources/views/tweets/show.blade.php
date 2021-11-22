@@ -3,7 +3,11 @@
 
 
 @section('main')
-    <h1>{{ $tweet->name }}</h1>
+    <h1>{{ $tweet->text }}</h1>
+    @if (Auth::id() == $tweet->user->id)
+        <a href="/tweets/{{ $tweet->id }}/edit">Edit Tweet</a>
+
+    @endif
 
     <form action="/comments?tweetid={{ $tweet->id }}" method="POST">
         @csrf

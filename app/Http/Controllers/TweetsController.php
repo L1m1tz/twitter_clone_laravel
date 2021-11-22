@@ -105,18 +105,21 @@ class TweetsController extends Controller
         $tweet = tweets::find($id);
         $tweet->text = $request->text;
         $tweet->save();
-
+        
         return view('tweets.show', ['tweet' => $tweet]);
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\tweets  $tweets
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tweets $tweets)
+    public function destroy($id)
     {
-        //
+    
+        tweets::where(['id'=>$id])->delete();
+        return redirect('/tweets');
+
     }
 }

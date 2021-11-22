@@ -6,6 +6,11 @@
     <h1>{{ $tweet->text }}</h1>
     @if (Auth::id() == $tweet->user->id)
         <a href="/tweets/{{ $tweet->id }}/edit">Edit Tweet</a>
+        <form action="/tweets/{{ $tweet->id }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button>Delete Tweet</button>
+        </form>
 
     @endif
 
